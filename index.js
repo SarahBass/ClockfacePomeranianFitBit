@@ -15,7 +15,7 @@ import * as util from "../common/utils";
 import { battery } from 'power';
 import { display } from "display";
 import { today as userActivity } from "user-activity";
-import * as util from "../common/utils";
+
 
 // Update the clock every minute
 clock.granularity = "seconds";
