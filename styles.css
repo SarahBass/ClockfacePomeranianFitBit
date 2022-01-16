@@ -47,6 +47,10 @@
   font-size: 16;
   font-family: System-Bold;
   text-length: 32;
-  opacity: 1.0
+  opacity: 1.0;
 }
 
+.foreground-fill{ 
+  fill:fb-white;
+  opacity: 0.3;
+}
