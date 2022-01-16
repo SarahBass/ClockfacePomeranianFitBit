@@ -1,8 +1,12 @@
 <svg>
+  <!-- setting background -->
   <image href="batterydogscreen.png" />
+  
+  <image id="background" href="daydog.png" x="0" y="0" width="100%" height="100%" class="background" />
   
   <!-- clock information -->
   <text id="myLabel"></text>
+   <text id="date" />
   
   <!-- battery information -->
   <text id="batteryLabel" x="250" y="18" class="label" />
@@ -12,5 +16,17 @@
   <!-- steps information -->
   <text id="stepsLabel" x="140" y="285" class="labelpurple" />
 
-  
-</svg>
+  <!-- button -->
+
+ <use id="ambutton" href="#push-button" y="260" x="120" height="0"
+    fill="yellow" font-family="System-Regular" font-size="24">
+    <set href="#text" attributeName="text-buffer" to="am" />
+    <set href="#text" attributeName="fill" to="white" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+
+
+
+  </svg>
+
+
