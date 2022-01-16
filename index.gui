@@ -1,0 +1,16 @@
+<svg>
+  <image href="batterydogscreen.png" />
+  
+  <!-- clock information -->
+  <text id="myLabel"></text>
+  
+  <!-- battery information -->
+  <text id="batteryLabel" x="250" y="18" class="label" />
+  <text id="greenbatteryLabel" x="250" y="18" class="labelgreen" />
+  <text id="redbatteryLabel" x="250" y="18" class="labelred" />
+  
+  <!-- steps information -->
+  <text id="stepsLabel" x="140" y="285" class="labelpurple" />
+
+  
+</svg>
