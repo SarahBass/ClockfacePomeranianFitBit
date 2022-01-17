@@ -14,7 +14,7 @@
   <text id="redbatteryLabel" x="250" y="18" class="labelred" />
   
   <!-- steps information -->
-  <text id="stepsLabel" x="140" y="285" class="labelpurple" />
+  <text id="stepsLabel" class="labelpurple" />
 
   <!-- button -->
 
@@ -24,8 +24,6 @@
     <set href="#text" attributeName="fill" to="white" />
     <set href="#text" attributeName="y" to="12" />
   </use>
-
-
 
   </svg>
 
