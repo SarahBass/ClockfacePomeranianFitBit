@@ -48,9 +48,16 @@
   font-family: System-Bold;
   text-length: 32;
   opacity: 1.0;
+  text-anchor: middle;
+  x: 50%;
+  y: 95%;
 }
 
 .foreground-fill{ 
   fill:fb-white;
   opacity: 0.3;
 }
+
+
+
+
