@@ -1,17 +1,26 @@
-# ClockfacePomeranianFitBit
+# ClockfacePomeranianFitBit - Still under design changes
 Versa 2 , Version 4.3
 
+A space dog clock that is interactive and changes based on day, night, and stats. 
+
 Adds a png background, time, steps, battery life. 
-Updates every second (unfortunately this is the most accurate Fitbit can get)
+Updates every second (unfortunately this is the most accurate Fitbit can get without draining battery).
 
-Hope to add an animated screen and buttons, but the clockface is very limited in it's ability. 
-
-*This is my desired result, but the clock is not yet ready:*
-
+Cute Background keeps stats and changes based off of the time of day to reflect day and night. 
+Dog jumps and moves if you move the watch - which is my design using the accel functions to update animation. 
 
 ![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%209.png)
 
+Keep track of stats and how you feed your pet
 
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2017.png)
 
-It should open up animations, however, this would be better suited for the app rather than the clockface. 
-A clockface can only show animations and maybe have a click event unlike apps which are more suitable for games.
+Explore different backgrounds with your pet. Here's an aquatic one. There are 10+ backgrounds. 
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2030.png)
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2032.png)
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2033.png)
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2021.png)
