@@ -2,6 +2,10 @@
 Versa 2 , Version 4.3
 
 A space dog clock that is interactive and changes based on day, night, and stats. 
+The art was created by me using Vectornator, which is a svg art program on IPAD. 
+The art already existed from another project - ABC Pup for Android App, so I just 
+resized a snapshot of a scene to a 300 x 300 pixel area. 
+
 
 Adds a png background, time, steps, battery life. 
 Updates every second (unfortunately this is the most accurate Fitbit can get without draining battery).
