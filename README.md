@@ -6,6 +6,9 @@ The art was created by me using Vectornator, which is a svg art program on IPAD.
 The art already existed from another project - ABC Pup for Android App, so I just 
 resized a snapshot of a scene to a 300 x 300 pixel area. 
 
+You can see more of my art at https://www.instagram.com/puppyvector/?hl=en although I have to say, 
+most people are not a fan of the designs, but hey- I'm not an artist! Give me a break. 
+
 
 Adds a png background, time, steps, battery life. 
 Updates every second (unfortunately this is the most accurate Fitbit can get without draining battery).
