@@ -257,22 +257,53 @@ function updateScene() {
          if (bonenumber == 1){background.image = "bonenight.png";
           yesbutton.text = "yes";
           nopebutton.text = "no";
+          heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";                        
          }
          else if (dognumber == 1){background.image = "statisticsnight.png";
-          yesbutton.text = "T";
-          nopebutton.text = "F";
+          yesbutton.text = "yes";
+          nopebutton.text = "RES";
+          heart1.text = "<3"; 
+          heart2.text = "<3"; 
+          met1.text = "met";
+          met2.text = "met";
+          fed1.text = "fed";
+          fed2.text = "fed";                        
          }
          else if (ballnumber == 1){background.image = "ballnight.png";
           yesbutton.text = "yes";
-          nopebutton.text = "no";                         
+          nopebutton.text = "no"; 
+          heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";        
          }
          else {background.image = "openappsnight.png";
           yesbutton.text = " ";
-          nopebutton.text = " ";}
+          nopebutton.text = " ";
+          heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";        
+          }
    }
    else if  ((buttonnumber == 2)){
           yesbutton.text = " ";
           nopebutton.text = " ";
+          heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";     
          if (accelerometer.y < 2){
          background.image = "desertdog1.png";}
          else {background.image = "desertdog2.png";}}
@@ -321,6 +352,12 @@ function updateScene() {
    else{
               yesbutton.text = " ";
               nopebutton.text = " ";
+              heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";     
               if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
                   setToMorning();}
               else{setToNight();}
