@@ -257,7 +257,11 @@ function updateScene() {
      
    if  ((buttonnumber == 1)){
          
-         if (bonenumber == 1){background.image = "bonenight.png";
+         if (bonenumber == 1){
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+          background.image = "boneday.png";
+          }else{
+          background.image = "bonenight.png";}
           yepbutton.text = "yes";
           nopebutton.text = "no";
           heart1.text = " "; 
@@ -299,17 +303,47 @@ yepbutton.onactivate = function(evt) {
  }
 
          }
-         else if (dognumber == 1){background.image = "statisticsnight.png";
+         else if (dognumber == 1){
+          background.image = "statisticsnight.png";
           yepbutton.text = " ";
           nopebutton.text = "RES";
-          heart1.text = "<3"; 
-          heart2.text = "<3"; 
+           
+          if ((userActivity.adjusted.steps >1499)&&(userActivity.adjusted.steps <=2999)){
+          met1.text = "met";
+          }
+          
+          if (userActivity.adjusted.steps >2999){
           met1.text = "met";
           met2.text = "met";
-          fed1.text = "fed";
-          fed2.text = "fed";                        
-         }
-         else if (ballnumber == 1){background.image = "ballnight.png";
+          }
+           if (heartnumber == 1){                        
+          heart1.text = "<3";}
+          
+           if (heartnumber > 1){
+          heart1.text = "<3";   
+          heart2.text = "<3";}
+          
+           if (heartnumber < 1){ 
+          heart2.text = " ";  
+          heart1.text = " ";} 
+           
+          if (fednumber == 1){                       
+          fed1.text = "fed";}
+          
+           if (fednumber > 1){ 
+          fed1.text = "fed";   
+          fed2.text = "fed";}
+          
+          if (fednumber < 1){ 
+          fed2.text = " ";  
+          fed1.text = " ";}                           
+         
+   }
+         else if (ballnumber == 1){
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+          background.image = "ballday.png";
+          }else{
+          background.image = "ballnight.png";}
           yepbutton.text = "yes";
           nopebutton.text = "no"; 
           heart1.text = " "; 
