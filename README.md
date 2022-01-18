@@ -20,6 +20,8 @@ Dog jumps and moves if you move the watch - which is my design using the accel f
 
 Keep track of stats and how you feed your pet
 
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/animatedpngfitbitdog.png)
+
 ![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2017.png)
 
 Explore different backgrounds with your pet. Here's an aquatic one. There are 10+ backgrounds. 
