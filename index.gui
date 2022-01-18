@@ -74,6 +74,62 @@
     <set href="#text" attributeName="y" to="12" />
   </use>
   
+  <use id="yesbutton" href="#push-button" y="200" x="-25" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="nopebutton" href="#push-button" y="200" x="45" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="deeppink" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="met1" href="#push-button" y="100" x="-25" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="met2" href="#push-button" y="100" x="45" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+    <use id="heart1" href="#push-button" y="150" x="-25" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="heart2" href="#push-button" y="150" x="45" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="fed1" href="#push-button" y="50" x="-25" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
+  <use id="fed2" href="#push-button" y="50" x="45" height="0"
+    fill="yellow" font-family="System-Regular" font-size="20">
+    <set href="#text" attributeName="text-buffer" to=" " />
+    <set href="#text" attributeName="fill" to="limegreen" />
+    <set href="#text" attributeName="y" to="12" />
+  </use>
+  
   </svg>
 
 
