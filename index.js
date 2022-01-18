@@ -40,7 +40,7 @@ let dogbutton = document.getElementById("dogbutton");
 let goal1button = document.getElementById("goal1button");  
 let goal2button = document.getElementById("goal2button");  
 let goal3button = document.getElementById("goal3button");  
-let yesbutton = document.getElementById("yesbutton");  
+let yepbutton = document.getElementById("yepbutton");  
 let nopebutton = document.getElementById("nopebutton");  
 let heart1 = document.getElementById("heart1");  
 let heart2 = document.getElementById("heart2");
@@ -72,6 +72,9 @@ let stringbutton = "off";
 let buttonnumber = 0;
 let yesnumber = 0;
 let nopenumber = 0;
+let metnumber = 0;
+let fednumber = 0;
+let heartnumber = 0;
 //Activate button
   ambutton.onactivate = function(evt) {
   stringbutton = "on";
@@ -206,24 +209,27 @@ function setToNight() {
   
 }
 
-
-
 function setToMorning() {
-  if (userActivity.adjusted.steps >499){
-    background.image = "daygoal1.png";
-  }else if (userActivity.adjusted.steps >999){
-    background.image = "daygoal2.png";
-  }else if (userActivity.adjusted.steps >1499){
-    background.image = "daygoal3.png";
-  }else{
-  background.image = "daydog.png";}
+    if ((userActivity.adjusted.steps >499) && (userActivity.adjusted.steps <=999) && (accelerometer.y < 2)){
+      background.image = "daygoal1.png";
+    }else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499) && (accelerometer.y < 2)){
+      background.image = "daygoal2.png";
+    }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y < 2)){
+      background.image = "daygoal3.png";
+    }else if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y > 2)){
+      background.image = "daygoal1jump.png";
+    }else if ((userActivity.adjusted.steps >2499) && (userActivity.adjusted.steps <=2999) && (accelerometer.y > 2)){
+      background.image = "daygoal2jump.png";
+    }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
+      background.image = "daygoal3jump.png";
+    }else{background.image = "daydog.png"; }
   ambutton.text = "am";
-}
-
+ }
+  
 function starcounter(){
   if ((buttonnumber > 1) && (buttonnumber < 10)){
   
-    if ((userActivity.adjusted.steps >100) && (userActivity.adjusted.steps <=999)){
+    if ((userActivity.adjusted.steps >500) && (userActivity.adjusted.steps <=999)){
        goal1button.text = "*";
     }
     else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499)){
@@ -254,38 +260,143 @@ function updateScene() {
      
    if  ((buttonnumber == 1)){
          
-         if (bonenumber == 1){background.image = "bonenight.png";
-          yesbutton.text = "yes";
+         if (bonenumber == 1){
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+          background.image = "boneday.png";
+          }else{
+          background.image = "bonenight.png";}
+          yepbutton.text = "yes";
           nopebutton.text = "no";
           heart1.text = " "; 
           heart2.text = " "; 
           met1.text = " ";
           met2.text = " ";
           fed1.text = " ";
-          fed2.text = " ";                        
+          fed2.text = " ";     
+                              
+  nopebutton.onactivate = function(evt) {
+  yesnumber = 0;
+  nopenumber++;
+  if (nopenumber > 3){
+    nopenumber = 0;}
+  if (nopenumber == 1){
+    buttonnumber = 0;
+    nopenumber++;
+  vibration.start("ping");
+  }  
+  console.log("nope number: ");
+  console.log(nopenumber);
+ }
+
+yepbutton.onactivate = function(evt) {
+  nopenumber = 0;
+  yesnumber++;
+  if (yesnumber > 3){
+    yesnumber = 0;}
+  if (yesnumber == 1){
+    fednumber++;
+    buttonnumber = 0;
+    yesnumber++;
+  vibration.start("ping");
+  }  
+  console.log("yes number: ");
+  console.log(yesnumber);
+  console.log("fed number: ");
+  console.log(fednumber);
+ }
+
          }
-         else if (dognumber == 1){background.image = "statisticsnight.png";
-          yesbutton.text = "yes";
+         else if (dognumber == 1){
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+            background.image = "statisticsday.png";
+          }else{
+          background.image = "statisticsnight.png";}
+          yepbutton.text = " ";
           nopebutton.text = "RES";
-          heart1.text = "<3"; 
-          heart2.text = "<3"; 
+           
+          if ((userActivity.adjusted.steps >1499)&&(userActivity.adjusted.steps <=2999)){
+          met1.text = "met";
+          }
+          
+          if (userActivity.adjusted.steps >2999){
           met1.text = "met";
           met2.text = "met";
-          fed1.text = "fed";
-          fed2.text = "fed";                        
-         }
-         else if (ballnumber == 1){background.image = "ballnight.png";
-          yesbutton.text = "yes";
+          }
+           if (heartnumber == 1){                        
+          heart1.text = "<3";}
+          
+           if (heartnumber > 1){
+          heart1.text = "<3";   
+          heart2.text = "<3";}
+          
+           if (heartnumber < 1){ 
+          heart2.text = " ";  
+          heart1.text = " ";} 
+           
+          if (fednumber == 1){                       
+          fed1.text = "fed";}
+          
+           if (fednumber > 1){ 
+          fed1.text = "fed";   
+          fed2.text = "fed";}
+          
+          if (fednumber < 1){ 
+          fed2.text = " ";  
+          fed1.text = " ";}                           
+         
+   }
+         else if (ballnumber == 1){
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+          background.image = "ballday.png";
+          }else{
+          background.image = "ballnight.png";}
+          yepbutton.text = "yes";
           nopebutton.text = "no"; 
           heart1.text = " "; 
           heart2.text = " "; 
           met1.text = " ";
           met2.text = " ";
           fed1.text = " ";
-          fed2.text = " ";        
+          fed2.text = " "; 
+                                   
+            nopebutton.onactivate = function(evt) {
+  yesnumber = 0;
+  nopenumber++;
+  if (nopenumber > 3){
+    nopenumber = 0;}
+  if (nopenumber == 1){
+    buttonnumber = 0;
+    nopenumber++;
+  vibration.start("ping");
+  }  
+  console.log("nope number: ");
+  console.log(nopenumber);
+ }
+
+yepbutton.onactivate = function(evt) {
+  nopenumber = 0;
+  yesnumber++;
+  if (yesnumber > 3){
+    yesnumber = 0;}
+  if (yesnumber == 1){
+    heartnumber++;
+    buttonnumber = 0;
+    yesnumber++;
+  vibration.start("ping");
+  }  
+  console.log("yes number: ");
+  console.log(yesnumber);
+  console.log("heart number: ");
+  console.log(heartnumber);
+ }                         
          }
-         else {background.image = "openappsnight.png";
-          yesbutton.text = " ";
+         else {
+          if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()){
+           background.image = "openappsday.png"; 
+          }
+          else{
+          background.image = "openappsnight.png";}
+          yepbutton.text = " ";
           nopebutton.text = " ";
           heart1.text = " "; 
           heart2.text = " "; 
@@ -296,7 +407,7 @@ function updateScene() {
           }
    }
    else if  ((buttonnumber == 2)){
-          yesbutton.text = " ";
+          yepbutton.text = " ";
           nopebutton.text = " ";
           heart1.text = " "; 
           heart2.text = " "; 
@@ -350,7 +461,7 @@ function updateScene() {
          background.image = "room1.png";}
          else {background.image = "room2.png";}}
    else{
-              yesbutton.text = " ";
+              yepbutton.text = " ";
               nopebutton.text = " ";
               heart1.text = " "; 
           heart2.text = " "; 
