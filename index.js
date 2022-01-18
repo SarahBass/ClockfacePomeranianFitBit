@@ -139,7 +139,9 @@ dogbutton.onactivate = function(evt) {
 clock.ontick = (evt) => {
   let today = evt.date;
   let hours = today.getHours();
-  
+  if (util.zeroPad(hours) <12){
+  ambutton.text = "am";}
+  if (util.zeroPad(hours) >= 12){ambutton.text = "pm";}
   checkAndUpdateBatteryLevel();
   stepsLabel.text = userActivity.adjusted.steps;
  
@@ -204,8 +206,7 @@ function setToNight() {
     }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
       background.image = "3jumpnight.png";
     }else{background.image = "batterydogscreen.png";}
-  //PM AM Button
-  ambutton.text = "pm";
+  
   
 }
 
@@ -223,7 +224,6 @@ function setToMorning() {
     }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
       background.image = "daygoal3jump.png";
     }else{background.image = "daydog.png"; }
-  ambutton.text = "am";
  }
   
 function starcounter(){
@@ -464,14 +464,30 @@ yepbutton.onactivate = function(evt) {
               yepbutton.text = " ";
               nopebutton.text = " ";
               heart1.text = " "; 
-          heart2.text = " "; 
-          met1.text = " ";
-          met2.text = " ";
-          fed1.text = " ";
-          fed2.text = " ";     
-              if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
+              heart2.text = " "; 
+              met1.text = " ";
+              met2.text = " ";
+              fed1.text = " ";
+              fed2.text = " ";     
+              
+                if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
+                  
                   setToMorning();}
-              else{setToNight();}
+                else{
+                  if (today.getHours() == 10) {
+                    if (accelerometer.y < 2){background.image = "sleepflat1.png";}
+                    else{background.image = "sleepflat2.png";}}
+                  
+                  else if (today.getHours() == 11) {
+                    if (accelerometer.y < 2){background.image = "sleepupside1.png";}
+                    else{background.image = "sleepupside2.png";}}
+                  
+                  else if (today.getHours() == 12) {
+                    if (accelerometer.y < 2){background.image = "sleep1dog.png";}
+                    else{background.image = "sleep2dog.png";}}
+                  
+                  else{setToNight();}
+                  }
        }
   });     
        accelerometer.start();
