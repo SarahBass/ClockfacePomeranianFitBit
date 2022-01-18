@@ -294,8 +294,8 @@ yepbutton.onactivate = function(evt) {
   if (yesnumber > 3){
     yesnumber = 0;}
   if (yesnumber == 1){
+    buttonnumber = 10;
     fednumber++;
-    buttonnumber = 0;
     yesnumber++;
   vibration.start("ping");
   }  
@@ -456,11 +456,29 @@ yepbutton.onactivate = function(evt) {
          else {background.image = "campdog2.png";}}
           
    else if  ((buttonnumber == 9)){
-         
+         yesnumber = 0;
          if (accelerometer.y < 2){
          background.image = "room1.png";}
          else {background.image = "room2.png";}}
+     
+   else if  ((buttonnumber == 10) && (yesnumber == 2)){
+          yepbutton.text = " ";
+          nopebutton.text = " ";
+          heart1.text = " "; 
+          heart2.text = " "; 
+          met1.text = " ";
+          met2.text = " ";
+          fed1.text = " ";
+          fed2.text = " ";     
+         vibration.start("ring");
+         if (accelerometer.y < 2){
+         
+         background.image = "thanksdog1.png";}
+         else {background.image = "thanksdog2.png";}}     
+     
    else{
+              yesnumber = 0;
+              vibration.stop("ring");
               yepbutton.text = " ";
               nopebutton.text = " ";
               heart1.text = " "; 
@@ -469,7 +487,7 @@ yepbutton.onactivate = function(evt) {
               met2.text = " ";
               fed1.text = " ";
               fed2.text = " ";     
-              
+                
                 if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
                   
                   setToMorning();}
