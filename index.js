@@ -5,6 +5,12 @@
  *  Credit:     volkan-labs reading-watch-face
  *  Credit:     https://dev.fitbit.com/ and Forums
  *  Credit:     denk0403 Mario-Fitbit-Watchface
+ 
+ button opens menu
+ ufo button closes menu
+ bone button opens food page
+ ball button opens play page
+ dog button opens statistics page
  */
 
 
@@ -34,6 +40,14 @@ let dogbutton = document.getElementById("dogbutton");
 let goal1button = document.getElementById("goal1button");  
 let goal2button = document.getElementById("goal2button");  
 let goal3button = document.getElementById("goal3button");  
+let yesbutton = document.getElementById("yesbutton");  
+let nopebutton = document.getElementById("nopebutton");  
+let heart1 = document.getElementById("heart1");  
+let heart2 = document.getElementById("heart2");
+let met1 = document.getElementById("met1");  
+let met2 = document.getElementById("met2");
+let fed1 = document.getElementById("fed1"); 
+let fed2 = document.getElementById("fed2"); 
 // sunrise/sunset info
 let sunrise;
 let sunset;
@@ -56,6 +70,8 @@ let dognumber = 0;
 let ufonumber = 0;
 let stringbutton = "off";
 let buttonnumber = 0;
+let yesnumber = 0;
+let nopenumber = 0;
 //Activate button
   ambutton.onactivate = function(evt) {
   stringbutton = "on";
@@ -66,6 +82,9 @@ let buttonnumber = 0;
   vibration.start("confirmation-max");}
 
 bonebutton.onactivate = function(evt) {
+  ufonumber = 0;
+  ballnumber = 0;
+  dognumber = 0;
   bonenumber++;
   if (bonenumber > 3){
     bonenumber = 0;}
@@ -74,14 +93,24 @@ bonebutton.onactivate = function(evt) {
   console.log(bonenumber);}
 
 ufobutton.onactivate = function(evt) {
+  ballnumber = 0;
+  dognumber = 0;
+  bonenumber = 0;
   ufonumber++;
   if (ufonumber > 3){
     ufonumber = 0;}
+  if (ufonumber == 1){
+    buttonnumber = 0;
+    ufonumber++;
+  }
   vibration.start("confirmation-max");
   console.log("UFO number: ");
   console.log(ufonumber);}
 
 ballbutton.onactivate = function(evt) {
+  dognumber = 0;
+  bonenumber = 0;
+  ufonumber = 0;
   ballnumber++;
   if (ballnumber > 3){
     ballnumber = 0;}
@@ -90,12 +119,18 @@ ballbutton.onactivate = function(evt) {
   console.log(ballnumber);}
 
 dogbutton.onactivate = function(evt) {
+  bonenumber = 0;
+  ufonumber = 0;
+  ballnumber = 0;
   dognumber++;
   if (dognumber > 3){
     dognumber = 0;}
   vibration.start("confirmation-max");
   console.log("Dog number: ");
   console.log(dognumber);}
+
+
+ 
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
@@ -153,14 +188,7 @@ function defaultSunsetSunrise(error) {
 defaultSunsetSunrise(null);
 
 function setToNight() {
- if (Accelerometer) {
-   console.log("This device has an Accelerometer!");
-   const accelerometer = new Accelerometer({ frequency: 1 });
-   accelerometer.addEventListener("reading", () => {
-     
-   console.log(`${accelerometer.x},${accelerometer.y},${accelerometer.z}`);
-
-   if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y < 2)){
+    if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y < 2)){
       background.image = "nightgoal1.png";
     }else if ((userActivity.adjusted.steps >2499) && (userActivity.adjusted.steps <=2999) && (accelerometer.y < 2)){
       background.image = "nightgoal2.png";
@@ -172,67 +200,7 @@ function setToNight() {
       background.image = "2jumpnight.png";
     }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
       background.image = "3jumpnight.png";
-    }else{
-      
-      
-      if  (buttonnumber == 0){
-      background.image = "batterydogscreen.png";}
-      
-      else if  ((buttonnumber == 1)){
-         background.image = "openappsnight.png";}
-      
-      else if  ((buttonnumber == 2)){
-         if (accelerometer.y < 2){
-         background.image = "desertdog1.png";}
-         else {background.image = "desertdog2.png";}}
-        
-         else if  ((buttonnumber == 3)){
-         if (accelerometer.y < 2){
-         background.image = "waterdog1.png";}
-         else {background.image = "waterdog2.png";}}
-           
-         else if  ((buttonnumber == 4)){
-         if (accelerometer.y < 2){
-         background.image = "roomdog1.png";}
-         else {background.image = "roomdog2.png";}}
-           
-         else if  ((buttonnumber == 5)){
-         if (accelerometer.y < 2){
-         background.image = "waterfalldog1.png";}
-         else {background.image = "waterfalldog2.png";}}
-        
-         else if  ((buttonnumber == 6)){
-         if (accelerometer.y < 2){
-         background.image = "sultandog1.png";}
-         else {background.image = "sultandog2.png";}}
-           
-         else if  ((buttonnumber == 7)){
-         if (accelerometer.y < 2){
-         background.image = "forestdog1.png";}
-         else {background.image = "forestdog2.png";}}
-           
-         else if  ((buttonnumber == 8)){
-         if (accelerometer.y < 2){
-         background.image = "campdog1.png";}
-         else {background.image = "campdog2.png";}}
-          
-         else if  ((buttonnumber == 9)){
-         if (accelerometer.y < 2){
-         background.image = "cometdog1.png";}
-         else {background.image = "cometdog2.png";}}
-        
-         else{background.image = "batterydogscreen.png";}
-      
-      
-      
-    }
-  });   
-
-   
-  //Start reading data
-  accelerometer.start();}
-  else {
-   console.log("This device does NOT have an Accelerometer!");}
+    }else{background.image = "batterydogscreen.png";}
   //PM AM Button
   ambutton.text = "pm";
   
@@ -252,14 +220,118 @@ function setToMorning() {
   ambutton.text = "am";
 }
 
+function starcounter(){
+  if ((buttonnumber > 1) && (buttonnumber < 10)){
+  
+    if ((userActivity.adjusted.steps >100) && (userActivity.adjusted.steps <=999)){
+       goal1button.text = "*";
+    }
+    else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499)){
+       goal2button.text = "*";
+    }
+    else if(userActivity.adjusted.steps > 1499) {
+       goal3button.text = "*";
+    }
+    else { 
+       goal1button.text = " ";
+       goal2button.text = " ";
+       goal3button.text = " ";
+       }
+  }else {
+      goal1button.text = " ";
+       goal2button.text = " ";
+       goal3button.text = " ";
+    }
+}
+
 function updateScene() {
   let today = new Date();
-  if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
-    setToMorning();
-  } else {
-    setToNight();
+  starcounter();
+  if (Accelerometer) {
+   console.log("This device has an Accelerometer!");
+   const accelerometer = new Accelerometer({ frequency: 1 });
+   accelerometer.addEventListener("reading", () => {
+     
+   if  ((buttonnumber == 1)){
+         
+         if (bonenumber == 1){background.image = "bonenight.png";
+          yesbutton.text = "yes";
+          nopebutton.text = "no";
+         }
+         else if (dognumber == 1){background.image = "statisticsnight.png";
+          yesbutton.text = "T";
+          nopebutton.text = "F";
+         }
+         else if (ballnumber == 1){background.image = "ballnight.png";
+          yesbutton.text = "yes";
+          nopebutton.text = "no";                         
+         }
+         else {background.image = "openappsnight.png";
+          yesbutton.text = " ";
+          nopebutton.text = " ";}
+   }
+   else if  ((buttonnumber == 2)){
+          yesbutton.text = " ";
+          nopebutton.text = " ";
+         if (accelerometer.y < 2){
+         background.image = "desertdog1.png";}
+         else {background.image = "desertdog2.png";}}
+        
+   else if  ((buttonnumber == 3)){
+        
+         if (accelerometer.y < 2){
+         background.image = "waterdog1.png";}
+         else {background.image = "waterdog2.png";}}
+           
+   else if  ((buttonnumber == 4)){
+         
+         if (accelerometer.y < 2){
+         background.image = "roomdog1.png";}
+         else {background.image = "roomdog2.png";}}
+           
+   else if  ((buttonnumber == 5)){
+         
+         if (accelerometer.y < 2){
+         background.image = "waterfalldog1.png";}
+         else {background.image = "waterfalldog2.png";}}
+        
+   else if  ((buttonnumber == 6)){
+         
+         if (accelerometer.y < 2){
+         background.image = "sultandog1.png";}
+         else {background.image = "sultandog2.png";}}
+           
+   else if  ((buttonnumber == 7)){
+         
+         if (accelerometer.y < 2){
+         background.image = "forestdog1.png";}
+         else {background.image = "forestdog2.png";}}
+           
+   else if  ((buttonnumber == 8)){
+       
+         if (accelerometer.y < 2){
+         background.image = "campdog1.png";}
+         else {background.image = "campdog2.png";}}
+          
+   else if  ((buttonnumber == 9)){
+         
+         if (accelerometer.y < 2){
+         background.image = "room1.png";}
+         else {background.image = "room2.png";}}
+   else{
+              yesbutton.text = " ";
+              nopebutton.text = " ";
+              if (today.getTime() >= sunrise.getTime() && today.getTime() < sunset.getTime()) {
+                  setToMorning();}
+              else{setToNight();}
+       }
+  });     
+       accelerometer.start();
   }
+  else {console.log("This device does NOT have an Accelerometer!");}
+  
 }
+
 
 function updateSunsetSunrise(position) {
   let loc = position.coords;
