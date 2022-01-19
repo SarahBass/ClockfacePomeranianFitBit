@@ -37,3 +37,5 @@ Explore different backgrounds with your pet. Here's an aquatic one. There are 10
 The dog also updates on different events -  like after 10 PM , it sleeps. Then changes positions 2 times. 
 
 ![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/sleep2dog.png)
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/thanksdog2.png)
