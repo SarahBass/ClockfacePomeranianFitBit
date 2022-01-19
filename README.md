@@ -33,3 +33,7 @@ Explore different backgrounds with your pet. Here's an aquatic one. There are 10
 ![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2033.png)
 
 ![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/%20Icon%20design%2021.png)
+
+The dog also updates on different events -  like after 10 PM , it sleeps. Then changes positions 2 times. 
+
+![alt text](https://github.com/SarahBass/ClockfacePomeranianFitBit/blob/main/sleep2dog.png)
