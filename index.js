@@ -82,6 +82,8 @@ const greenbatteryLabel = document.getElementById("greenbatteryLabel");
 const redbatteryLabel = document.getElementById("redbatteryLabel");
 
 const stepsLabel = document.getElementById("stepsLabel");
+
+
 let bonenumber = 0;
 let ballnumber = 0;
 let dognumber = 0;
@@ -161,6 +163,11 @@ clock.ontick = (evt) => {
   ambutton.text = "am";}
   if (util.zeroPad(hours) >= 12){ambutton.text = "pm";}
   checkAndUpdateBatteryLevel();
+  
+  if ((buttonnumber == 9)||(buttonnumber == 8)||(buttonnumber == 4)||(buttonnumber == 5)){ stepsLabel.class= "labelyellow";}
+  else{ stepsLabel.class= "labelpurple";}
+  
+  
   stepsLabel.text = userActivity.adjusted.steps;
  
   if (preferences.clockDisplay === "12h") {
@@ -171,6 +178,8 @@ clock.ontick = (evt) => {
     hours = util.zeroPad(hours);
   }
   let mins = util.zeroPad(today.getMinutes());
+  if (buttonnumber == 2){myLabel.class = "mydarkLabel";}
+  else{myLabel.class = "myLabel";}
   myLabel.text = `${hours}:${mins}`;
   
   if (hours === 0 && mins === 0) {
@@ -211,11 +220,11 @@ function defaultSunsetSunrise(error) {
 defaultSunsetSunrise(null);
 
 function setToNight() {
-    if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y < 2)){
+    if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y <= 2)){
       background.image = "nightgoal1.png";
-    }else if ((userActivity.adjusted.steps >2499) && (userActivity.adjusted.steps <=2999) && (accelerometer.y < 2)){
+    }else if ((userActivity.adjusted.steps >2499) && (userActivity.adjusted.steps <=2999) && (accelerometer.y <= 2)){
       background.image = "nightgoal2.png";
-    }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y < 2)){
+    }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y <= 2)){
       background.image = "nightgoal3.png";
     }else if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y > 2)){
       background.image = "1jumpnight.png";
@@ -224,16 +233,15 @@ function setToNight() {
     }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
       background.image = "3jumpnight.png";
     }else{background.image = "batterydogscreen.png";}
-  
-  
+    
 }
 
 function setToMorning() {
-    if ((userActivity.adjusted.steps >499) && (userActivity.adjusted.steps <=999) && (accelerometer.y < 2)){
+    if ((userActivity.adjusted.steps >499) && (userActivity.adjusted.steps <=999) && (accelerometer.y <= 2)){
       background.image = "daygoal1.png";
-    }else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499) && (accelerometer.y < 2)){
+    }else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499) && (accelerometer.y <= 2)){
       background.image = "daygoal2.png";
-    }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y < 2)){
+    }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y <= 2)){
       background.image = "daygoal3.png";
     }else if ((userActivity.adjusted.steps >499) && (userActivity.adjusted.steps <=999) && (accelerometer.y > 2)){
       background.image = "daygoal1jump.png";
@@ -241,7 +249,8 @@ function setToMorning() {
       background.image = "daygoal2jump.png";
     }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y > 2)){
       background.image = "daygoal3jump.png";
-    }else{background.image = "daydog.png"; }
+    }else{background.image = "daydog.png";}
+ 
  }
   
 function starcounter(){
