@@ -6,15 +6,29 @@
  *  Credit:     https://dev.fitbit.com/ and Forums
  *  Credit:     denk0403 Mario-Fitbit-Watchface for GPS
  
- button opens menu
- ufo button closes menu
- bone button opens food page
- ball button opens play page
- dog button opens statistics page
+ Dog background changes for:
+  ------------------------------------
+ Goals : 3000 for Dog to Walk
+ Time of Day
+ Sleeping Hours
+ Data Entered/Yes Confirmation
+  ------------------------------------
+ User Actions: 
+ ------------------------------------
+ Button opens menu
+ Ufo button closes menu
+ Press button to change background
  
- Press button to change background.
- Press return to get back to menu
- Press reset if dog-stats are incorrect
+ Bone button opens food page
+   Enter yes or no Stats
+ 
+ Ball button opens play page
+   Enter yes or no Stats
+ 
+ Dog button opens statistics page
+   Press reset if dog-stats are incorrect
+  
+  ------------------------------------
  */
 
 
@@ -221,11 +235,11 @@ function setToMorning() {
       background.image = "daygoal2.png";
     }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y < 2)){
       background.image = "daygoal3.png";
-    }else if ((userActivity.adjusted.steps >1999) && (userActivity.adjusted.steps <=2499) && (accelerometer.y > 2)){
+    }else if ((userActivity.adjusted.steps >499) && (userActivity.adjusted.steps <=999) && (accelerometer.y > 2)){
       background.image = "daygoal1jump.png";
-    }else if ((userActivity.adjusted.steps >2499) && (userActivity.adjusted.steps <=2999) && (accelerometer.y > 2)){
+    }else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499) && (accelerometer.y > 2)){
       background.image = "daygoal2jump.png";
-    }else if ((userActivity.adjusted.steps >2999) && (accelerometer.y > 2)){
+    }else if ((userActivity.adjusted.steps >1499) && (accelerometer.y > 2)){
       background.image = "daygoal3jump.png";
     }else{background.image = "daydog.png"; }
  }
