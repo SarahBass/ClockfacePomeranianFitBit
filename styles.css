@@ -3,8 +3,11 @@
   viewport-fill: red;
 }
 
+.frame {
+  viewport-fill: red;
+}
 
-#myLabel {
+.myLabel {
   fill: azure;
   letter-spacing: 5;
   font-size: 55;
@@ -16,6 +19,20 @@
   y: 14%;
   
 }
+
+.mydarkLabel {
+  fill: darkturquoise;
+  letter-spacing: 5;
+  font-size: 55;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  opacity: 0.5; 
+  x: 50%;
+  y: 14%;
+  
+}
+
 .label {
   fill: azure;
   font-size: 11;
@@ -43,6 +60,18 @@
 
 .labelpurple {
   fill: blueviolet;
+  letter-spacing: 5;
+  font-size: 16;
+  font-family: System-Bold;
+  text-length: 32;
+  opacity: 1.0;
+  text-anchor: middle;
+  x: 50%;
+  y: 95%;
+}
+
+.labelyellow {
+  fill: yellow;
   letter-spacing: 5;
   font-size: 16;
   font-family: System-Bold;
