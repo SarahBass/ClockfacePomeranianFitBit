@@ -2,15 +2,19 @@
  *  Project:    Versa 2 Dog Clock Face
  *  Mail:       darahbass@gmail.com
  *  Github:     SarahBass
- *  Credit:     volkan-labs reading-watch-face
+ *  Credit:     volkan-labs reading-watch-face for stats
  *  Credit:     https://dev.fitbit.com/ and Forums
- *  Credit:     denk0403 Mario-Fitbit-Watchface
+ *  Credit:     denk0403 Mario-Fitbit-Watchface for GPS
  
  button opens menu
  ufo button closes menu
  bone button opens food page
  ball button opens play page
  dog button opens statistics page
+ 
+ Press button to change background.
+ Press return to get back to menu
+ Press reset if dog-stats are incorrect
  */
 
 
@@ -185,7 +189,7 @@ function defaultSunsetSunrise(error) {
   sunrise.setMinutes(0);
   sunrise.setSeconds(0);
   sunset = new Date();
-  sunset.setHours(20);
+  sunset.setHours(16);
   sunset.setMinutes(0);
   sunset.setSeconds(0);
 }
@@ -229,13 +233,13 @@ function setToMorning() {
 function starcounter(){
   if ((buttonnumber > 1) && (buttonnumber < 10)){
   
-    if ((userActivity.adjusted.steps >500) && (userActivity.adjusted.steps <=999)){
+    if ((userActivity.adjusted.steps >1000) && (userActivity.adjusted.steps <=2999)){
        goal1button.text = "*";
     }
-    else if ((userActivity.adjusted.steps >999) && (userActivity.adjusted.steps <=1499)){
+    else if ((userActivity.adjusted.steps >2999) && (userActivity.adjusted.steps <=3000)){
        goal2button.text = "*";
     }
-    else if(userActivity.adjusted.steps > 1499) {
+    else if(userActivity.adjusted.steps > 3000) {
        goal3button.text = "*";
     }
     else { 
@@ -415,7 +419,9 @@ yepbutton.onactivate = function(evt) {
           met2.text = " ";
           fed1.text = " ";
           fed2.text = " ";     
+          ufobutton.text = " ";  
          if (accelerometer.y < 2){
+         
          background.image = "desertdog1.png";}
          else {background.image = "desertdog2.png";}}
         
@@ -462,6 +468,8 @@ yepbutton.onactivate = function(evt) {
          else {background.image = "room2.png";}}
      
    else if  ((buttonnumber == 10) && (yesnumber == 2)){
+          
+          ufobutton.text = " "; 
           yepbutton.text = " ";
           nopebutton.text = " ";
           heart1.text = " "; 
@@ -470,13 +478,14 @@ yepbutton.onactivate = function(evt) {
           met2.text = " ";
           fed1.text = " ";
           fed2.text = " ";     
-         vibration.start("ring");
+         vibration.start("ping");
          if (accelerometer.y < 2){
          
-         background.image = "thanksdog1.png";}
-         else {background.image = "thanksdog2.png";}}     
+         background.image = "heartswithcircle1.png";}
+         else {background.image = "heartswithcircle2.png";}}     
      
    else{
+              ufobutton.text = " "; 
               yesnumber = 0;
               vibration.stop("ring");
               yepbutton.text = " ";
@@ -492,17 +501,33 @@ yepbutton.onactivate = function(evt) {
                   
                   setToMorning();}
                 else{
-                  if (today.getHours() == 10) {
+                  if (today.getHours() == 22) {
                     if (accelerometer.y < 2){background.image = "sleepflat1.png";}
                     else{background.image = "sleepflat2.png";}}
                   
-                  else if (today.getHours() == 11) {
+                  else if (today.getHours() == 23) {
                     if (accelerometer.y < 2){background.image = "sleepupside1.png";}
                     else{background.image = "sleepupside2.png";}}
                   
-                  else if (today.getHours() == 12) {
+                  else if (today.getHours() == 24) {
                     if (accelerometer.y < 2){background.image = "sleep1dog.png";}
                     else{background.image = "sleep2dog.png";}}
+                  
+                  else if (today.getHours() == 1) {
+                    if (accelerometer.y < 2){background.image = "sleepupside1.png";}
+                    else{background.image = "sleepupside2.png";}}
+                  
+                  else if (today.getHours() == 2) {
+                    if (accelerometer.y < 2){background.image = "sleepflat1.png";}
+                    else{background.image = "sleepflat2.png";}}
+                  
+                  else if (today.getHours() == 3) {
+                    if (accelerometer.y < 2){background.image = "sleep1dog.png";}
+                    else{background.image = "sleep2dog.png";}}
+                  
+                  else if (today.getHours() == 4) {
+                    if (accelerometer.y < 2){background.image = "sleepupside1.png";}
+                    else{background.image = "sleepupside2.png";}}
                   
                   else{setToNight();}
                   }
