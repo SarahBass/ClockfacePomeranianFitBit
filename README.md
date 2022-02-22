@@ -1,4 +1,4 @@
-# ClockfacePomeranianFitBit - Still under design changes
+# ClockfacePomeranianFitBit 
 Versa 2 , Version 4.3
 
 A space dog clock that is interactive and changes based on day, night, and stats. 
@@ -7,7 +7,8 @@ The art already existed from another project - ABC Pup for Android App, so I jus
 resized a snapshot of a scene to a 300 x 300 pixel area. This watch is private only
 in the Fitbit Studio. The animations are triggered by movement instead of time giving
 it a choppy look that isn't very user friendly. See my Animate codes using transform,
-sprites, and time for better examples. Also Morse Code Game uses the same art. 
+sprites, and time for better examples. Also Morse Code Game uses the same art. The one 
+benefit to animating only upon movement is that it saves battery.
 
 You can see more of my art at https://www.instagram.com/puppyvector/?hl=en. 
 
